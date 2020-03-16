@@ -840,7 +840,7 @@
         <string>meta.variable.assignment.keyword.robot</string>
 
         <key>begin</key>
-        <string>(?<=^\s)(?:\s*)(?=[$@&amp;])</string>
+        <string>(?&lt;=^\s)(?:\s*)(?=[$@&amp;])</string>
 
         <key>contentName</key>
         <string>meta.variable.assignment.keyword.body.robot</string>
@@ -1220,7 +1220,7 @@
         <string>meta.for.header.operator.robot</string>
 
         <key>begin</key>
-        <string>(?<=\s)(IN ENUMERATE|IN RANGE|IN ZIP|IN)</string>
+        <string>(?&lt;=\s)(IN ENUMERATE|IN RANGE|IN ZIP|IN)</string>
 
         <key>beginCaptures</key>
         <dict>

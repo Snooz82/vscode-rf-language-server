@@ -1,10 +1,10 @@
 {
   "name": "rf-intellisense",
-  "displayName": "Robot Framework Intellisense",
-  "description": "Robot Framework Intellisense",
+  "displayName": "Robot Framework Intellisense FORK",
+  "description": "This is an updated Fork of the Robot Framework Intellisense",
   "version": "2.9.2",
   "license": "MIT",
-  "publisher": "TomiTurtiainen",
+  "publisher": "Snooz82",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.26.0"
@@ -265,17 +265,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomi/vscode-rf-language-server.git"
+    "url": "https://github.com/Snooz82/vscode-rf-language-server.git"
   },
   "keywords": [
+    "Robot",
     "RF",
     "RobotFramework",
     "intellisense",
     "code-completion"
   ],
   "author": "Tomi Turtiainen <tomi.turtiainen@gmail.com>",
+  "contributors": [
+    {
+      "name" : "René Rohner",
+      "email" : "rene@robotframework.org",
+      "url" : "https://github.com/Snooz82/"
+    }
+  ],
   "bugs": {
-    "url": "https://github.com/tomi/vscode-rf-language-server/issues"
+    "url": "https://github.com/Snooz82/vscode-rf-language-server/issues"
   },
-  "homepage": "https://github.com/tomi/vscode-rf-language-server#readme"
+  "homepage": "https://github.com/Snooz82/vscode-rf-language-server#readme"
 }
