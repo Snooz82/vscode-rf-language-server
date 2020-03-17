@@ -15,6 +15,14 @@ export class Config {
     return Config.settings;
   }
 
+  public static is4spacesTabActive() {
+    Config.reloadConfig();
+
+    return Config.settings
+    ? Config.settings.get<boolean>("4spacesTab")
+    : true;
+  }
+
   /**
    * Returns configured include patterns or default pattern
    */

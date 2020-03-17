@@ -2,7 +2,7 @@
   "name": "rf-intellisense",
   "displayName": "Robot Framework Intellisense FORK",
   "description": "This is an updated Fork of the Robot Framework Intellisense",
-  "version": "2.9.2",
+  "version": "2.9.3",
   "license": "MIT",
   "publisher": "Snooz82",
   "icon": "icon.png",
@@ -53,6 +53,10 @@
       {
         "command": "rfIntellisense.reportBug",
         "title": "RF Intellisense - Report a bug"
+      },
+      {
+        "command": "rfIntellisense.separator",
+        "title": "RF Intellisense - Separat"
       }
     ],
     "configuration": {
@@ -74,6 +78,11 @@
           "items": {
             "type": "string"
           }
+        },
+        "rfLanguageServer.4spacesTab": {
+          "type": "boolean",
+          "default": true,
+          "description": "Replaces the key stroke of tab with 4 spaces. Set to 'false' to active VSCode default."
         },
         "rfLanguageServer.pythonKeywords": {
           "type": "boolean",
@@ -240,7 +249,14 @@
           "description": "Traces the communication between VSCode and the rfLanguageServer service."
         }
       }
-    }
+    },
+    "keybindings": [
+      {
+        "key": "tab",
+        "command": "rfIntellisense.separator",
+        "when": "editorTextFocus && editorLangId == robot && !editorHasSelection && config.rfLanguageServer.4spacesTab"
+      }
+    ]
   },
   "scripts": {
     "compile": "tsc -watch -p ./",
@@ -258,7 +274,7 @@
     "prettier": "1.14.3",
     "tslint": "5.13.1",
     "typescript": "3.3.3333",
-    "vscode": "1.1.21"
+    "vscode": "^1.1.36"
   },
   "dependencies": {
     "vscode-languageclient": "~5.1.1"
@@ -277,9 +293,9 @@
   "author": "Tomi Turtiainen <tomi.turtiainen@gmail.com>",
   "contributors": [
     {
-      "name" : "René Rohner",
-      "email" : "rene@robotframework.org",
-      "url" : "https://github.com/Snooz82/"
+      "name": "René Rohner",
+      "email": "rene@robotframework.org",
+      "url": "https://github.com/Snooz82/"
     }
   ],
   "bugs": {

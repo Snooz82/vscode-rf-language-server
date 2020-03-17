@@ -1,4 +1,4 @@
-import { window, workspace } from "vscode";
+import { window, workspace, commands } from "vscode";
 
 import { Config } from "./utils/config";
 import RFServerClient from "./rf-server-client";
@@ -16,6 +16,10 @@ export default class CommandHandler {
 
   constructor(languageClient: RFServerClient) {
     this.langClient = languageClient;
+  }
+
+  public typeSeparator() {
+    commands.executeCommand("type", { text: "    " });
   }
 
   public parseAll() {

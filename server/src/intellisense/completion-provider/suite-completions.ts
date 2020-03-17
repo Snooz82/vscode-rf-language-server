@@ -19,25 +19,31 @@ export function getCompletions(
     return [];
   }
 
-  const missingTables = _getMissingTables(fileAst);
+  const missingTables = _getMissingTables(fileAst, text);
   const sanitizedText = text.replace(/\*/g, "").replace(/ /g, "");
   return getSyntaxCompletions(sanitizedText, missingTables);
 }
 
-function _getMissingTables(ast: TestSuite) {
+function _escapeRegExp(text: string) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
+function _getMissingTables(ast: TestSuite, text: string) {
   const tables = [];
 
+  const re = new RegExp(`^${_escapeRegExp(text.substr(0, 3))}`, "g");
+
   if (!ast.settingsTable) {
-    tables.push("Settings");
+    tables.push("*** Settings ***".replace(re, ""));
   }
   if (!ast.variablesTable) {
-    tables.push("Variables");
+    tables.push("*** Variables ***".replace(re, ""));
   }
   if (!ast.keywordsTable) {
-    tables.push("Keywords");
+    tables.push("*** Keywords ***".replace(re, ""));
   }
   if (!ast.testCasesTable) {
-    tables.push("Test Cases");
+    tables.push("*** Test Cases ***".replace(re, ""));
   }
 
   return tables;

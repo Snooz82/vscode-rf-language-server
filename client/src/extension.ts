@@ -24,6 +24,12 @@ export function activate(context: ExtensionContext) {
       commandHandler.parseAll()
     )
   );
+  context.subscriptions.push(
+    commands.registerCommand(
+      "rfIntellisense.separator",
+      commandHandler.typeSeparator
+    )
+  );
 
   rfLanguageServerClient.start().then(() => commandHandler.parseAll());
 
