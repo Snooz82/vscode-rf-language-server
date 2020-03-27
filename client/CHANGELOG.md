@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.9.3
+* Release date: March 17, 2020
+
+### What's new in this version
+* Better completion in section headers (`*** Settings ***`)
+* key binding for tab key to use exact 4 spaces. Can be deactivated.
+
 ## Version 2.9.2
 * Release date: March 16, 2020
 

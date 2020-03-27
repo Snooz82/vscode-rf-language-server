@@ -151,14 +151,14 @@
       </dict>
 
 
-      <!-- TODO: Separate into Documentation and [Documentation] -->
-      <key>documentation</key>
+      <!-- Test Cases and Keywords [Documentation] -->
+      <key>fuction_documentation</key>
       <dict>
         <key>name</key>
         <string>meta.documentation.robot</string>
 
         <key>begin</key>
-        <string>(?i)^\s*(\[?)(Documentation)(\]?)(?= {2}| ?\t| ?$)</string>
+        <string>(?i)^(?: {2,}| ?\t ?)+(\[)(Documentation)(\])(?= {2}| ?\t| ?$)</string>
 
         <key>beginCaptures</key>
         <dict>
@@ -200,6 +200,44 @@
           </dict>
         </array>
 
+      </dict>
+
+      <!-- Settings Documentation -->
+      <key>documentation</key>
+      <dict>
+        <key>name</key>
+        <string>meta.documentation.robot</string>
+
+        <key>begin</key>
+        <string>(?i)^(Documentation)(?= {2}| ?\t| ?$)</string>
+
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>storage.type.method.robot</string>
+          </dict>
+        </dict>
+
+        <key>contentName</key>
+        <string>string.unquoted.robot</string>
+
+        <key>end</key>
+        <string>^(?!\s*\.\.\.)</string>
+
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#line_continuation</string>
+          </dict>
+        </array>
       </dict>
 
 
@@ -256,7 +294,7 @@
 
         <!-- TODO: Create a separate repository entry for each of these for better control -->
         <key>begin</key>
-        <string>(?i)^(Library|Resource|Variables|Metadata)(?: {2}| ?\t)*(.*?)(?= {2}| ?\t| ?$)</string>
+        <string>(?i)^(Library|Resource|Variables|Metadata)(?: {2,}| ?\t)+(.*?)(?= {2}| ?\t| ?$)</string>
 
         <key>beginCaptures</key>
         <dict>
@@ -313,7 +351,7 @@
 
         <!-- TODO: Create a separate repository entry for each of these for better control -->
         <key>begin</key>
-        <string>(?i)^(Suite Setup|Suite Teardown|Test Setup|Test Teardown|Test Template)(?: {2}| ?\t)*(.*?)(?= {2}| ?\t| ?$)</string>
+        <string>(?i)^(Suite Setup|Suite Teardown|Test Setup|Test Teardown|Test Template)(?: {2,}| ?\t)+(.*?)(?= {2}| ?\t| ?$)</string>
 
         <key>beginCaptures</key>
         <dict>
@@ -833,7 +871,7 @@
       </dict>
 
 
-      <!-- variables assigned by keywors unti = -->
+      <!-- variables assigned by keywords until = -->
       <key>variable_assignment_from_kw</key>
       <dict>
         <key>name</key>
@@ -931,6 +969,95 @@
       </dict>
 
 
+      <!-- variables assigned by keywords until = -->
+      <key>BDD_keyword</key>
+      <dict>
+        <key>name</key>
+        <string>meta.bdd.keyword.body.robot</string>
+
+        <key>begin</key>
+        <string>(?i)(?&lt;=^\s)(?:\s+)(?=(?:given|when|then|and|but))</string>
+
+        <key>contentName</key>
+        <string>keyword.operator.robot</string>
+
+        <key>end</key>
+        <string>(?: )(.*?)(?: {2,}| ?\t+| ?$)</string>
+
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>entity.name.function.robot</string>
+          </dict>
+        </dict>
+
+        <key>patterns</key>
+        <array>
+
+          <dict>
+            <key>include</key>
+            <string>#parameter</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#line_continuation</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+        
+        </array>
+      </dict>
+
+
+      <!-- Keyword Call that assign return values to variables -->
+      <key>BDD_keyword_call</key>
+      <dict>
+        <key>name</key>
+        <string>meta.bdd.keyword.robot</string>
+
+        <key>begin</key>
+        <string>(?i)^(?=(?: {2,}| ?\t ?)+(?:given |when |then |and |but )[^\s])(?:\s)</string>
+
+        <key>contentName</key>
+        <string>meta.bdd.keyword.robot</string>
+
+        <key>end</key>
+        <string>^(?!\s*\.\.\.)</string>
+
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#BDD_keyword</string>
+          </dict>
+        
+          <dict>
+            <key>include</key>
+            <string>#variables</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#named_argument</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#line_continuation</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#comment</string>
+          </dict>
+        </array>
+      </dict>
 
 
       <!-- #########################Improve############################## -->
@@ -1063,7 +1190,6 @@
         </array>
       </dict>
 
-
       <!-- ELSE -->
       <key>ELSE</key>
       <dict>
@@ -1126,8 +1252,6 @@
         </array>
       </dict>
       <!-- #########################Improve############################## -->
-
-
 
 
       <!-- variable assignment in variables section -->
@@ -1213,6 +1337,8 @@
 
         </array>
       </dict>
+
+
       <!-- FOR Operator in for_header (IN ENUMERATE|IN RANGE|IN ZIP|IN) until line end -->
       <key>for_operator</key>
       <dict>
@@ -1261,6 +1387,8 @@
         </array>
 
       </dict>
+
+
       <!-- Complete FOR loop from FOR until END -->
       <key>for_loop</key>
       <dict>
@@ -1365,6 +1493,7 @@
 
       </dict>
 
+
       <!-- *** Variables *** -->
       <key>variables_table</key>
       <dict>
@@ -1418,6 +1547,7 @@
         </array>
       </dict>
 
+
       <!-- *** Keywords *** -->
       <key>keywords_table</key>
       <dict>
@@ -1451,7 +1581,7 @@
 
           <dict>
             <key>include</key>
-            <string>#documentation</string>
+            <string>#fuction_documentation</string>
           </dict>
 
           <dict>
@@ -1467,6 +1597,11 @@
           <dict>
             <key>include</key>
             <string>#returning_keyword_call</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#BDD_keyword_call</string>
           </dict>
 
           <dict>
@@ -1514,21 +1649,10 @@
             <string>#function_timeout</string>
           </dict>
 
-          <!-- Setup and Template are illegal for keywords but highlight them anyway  -->
-          <!--<dict>
-            <key>include</key>
-            <string>#function_setup</string>
-          </dict>-->
-
           <dict>
             <key>include</key>
             <string>#function_teardown</string>
           </dict>
-
-          <!--.<dict>
-            <key>include</key>
-            <string>#function_template</string>
-          </dict>-->
 
           <dict>
             <key>include</key>
@@ -1542,6 +1666,7 @@
 
         </array>
       </dict>
+
 
       <!-- *** Test Cases *** -->
       <key>test_cases_table</key>
@@ -1576,12 +1701,17 @@
 
           <dict>
             <key>include</key>
-            <string>#documentation</string>
+            <string>#fuction_documentation</string>
           </dict>
 
           <dict>
             <key>include</key>
             <string>#comment</string>
+          </dict>
+
+          <dict>
+            <key>include</key>
+            <string>#BDD_keyword_call</string>
           </dict>
 
           <dict>
@@ -1649,17 +1779,6 @@
             <string>#function_template</string>
           </dict>
 
-          <!-- Arguments and return are illegal for test cases but highlight them anyway  -->
-          <!--<dict>
-            <key>include</key>
-            <string>#keyword_return</string>
-          </dict>
-
-          <dict>
-            <key>include</key>
-            <string>#keyword_arguments</string>
-          </dict>-->
-
           <dict>
             <key>include</key>
             <string>#keyword_call</string>
@@ -1673,22 +1792,13 @@
       </dict>
     </dict>
 
+
     <key>patterns</key>
     <array>
       <dict>
         <key>include</key>
         <string>#comment</string>
       </dict>
-
-      <!--<dict>
-        <key>include</key>
-        <string>#variables</string>
-      </dict>
-
-      <dict>
-        <key>include</key>
-        <string>#documentation</string>
-      </dict>-->
 
       <dict>
         <key>include</key>
