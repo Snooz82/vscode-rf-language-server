@@ -2,7 +2,7 @@
   "name": "rf-intellisense",
   "displayName": "Robot Framework Intellisense FORK",
   "description": "This is an updated Fork of the Robot Framework Intellisense",
-  "version": "2.9.3",
+  "version": "2.9.4",
   "license": "MIT",
   "publisher": "Snooz82",
   "icon": "icon.png",
