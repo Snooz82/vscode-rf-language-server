@@ -41,8 +41,8 @@
     "grammars": [
       {
         "language": "robot",
-        "scopeName": "text.robot",
-        "path": "./syntaxes/robot.tmLanguage"
+        "scopeName": "source.robot",
+        "path": "./syntaxes/robot.tmLanguage.json"
       }
     ],
     "commands": [
