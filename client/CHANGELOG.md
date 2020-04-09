@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.9.5
+* Release date: April 09, 2020
+
+### What's new in this version
+* Small bugfix in syntax highlighting
+
 ## Version 2.9.4
 * Release date: April 07, 2020
 
