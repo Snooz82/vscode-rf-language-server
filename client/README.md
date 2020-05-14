@@ -43,7 +43,7 @@ A [Visual Studio Code](https://code.visualstudio.com/) extension that supports R
 * Requires configuration for which libraries are suggested with `rfLanguageServer.libraries` setting. E.g.
 ```json
 "rfLanguageServer.libraries": [
-  "BuiltIn-3.0.4"
+  "BuiltIn-3.2.1"
 ]
 ```
 * See a list of all available libraries [here](#supported-standard-libraries)
@@ -80,26 +80,26 @@ If the `includePaths` is left unspecified, the parser defaults to including all 
 ## Supported standard libraries
 
 * `AppiumLibrary-1.5.0.4`
-* `BuiltIn-3.1.2`
-* `Collections-3.1.2`
+* `BuiltIn-3.2.1`
+* `Collections-3.2.1`
 * `DatabaseLibrary-`
-* `DateTime-3.1.2`
-* `Dialogs-3.1.2`
+* `DateTime-3.2.1`
+* `Dialogs-3.2.1`
 * `FakerLibrary-`
 * `JSONLibrary-`
-* `OperatingSystem-3.1.2`
-* `Process-3.1.2`
-* `RequestsLibrary-0.6.5`
+* `OperatingSystem-3.2.1`
+* `Process-3.2.1`
+* `RequestsLibrary-0.7.0`
 * `REST-`
-* `Screenshot-3.1.2`
-* `SeleniumLibrary-4.3.0`
+* `Screenshot-3.2.1`
+* `SeleniumLibrary-4.4.0`
 * `SeleniumLibrary with SeleniumTestability Plugin-4.3.0`
 * `SSHLibrary-3.4.0`
-* `String-3.1.2`
+* `String-3.2.1`
 * `SwingLibrary-1.9.9`
-* `Telnet-3.1.2`
+* `Telnet-3.2.1`
 * `WhiteLibrary-1.6.0`
-* `XML-3.1.2`
+* `XML-3.2.1`
 
 ## Defining 3rd party libraries
 
@@ -112,8 +112,8 @@ For example:
 ```json
 "rfLanguageServer.libraries": [
   "RequestsLibrary",
-  "Screenshot-3.1.2",
-  "SeleniumLibrary-4.2.0",
+  "Screenshot-3.2.1",
+  "SeleniumLibrary-4.4.0",
   {
     "name": "MyLibrary",
     "version": "1.0.0",

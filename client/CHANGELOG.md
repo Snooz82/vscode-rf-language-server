@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 2.9.6
+* Release date: May 14, 2020
+
+### What's new in this version
+* Major bugfix in syntax highlighting
+* Enabled tab for completion and stepping through arguments
+
 ## Version 2.9.5
 * Release date: April 09, 2020
 

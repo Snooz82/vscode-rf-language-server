@@ -9,7 +9,7 @@ urls=(
   https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
   https://rasjani.github.io/robotframework-seleniumtestability/index.html
   https://robotframework-thailand.github.io/robotframework-jsonlibrary/JSONLibrary.html
-  https://bulkan.github.io/robotframework-requests/doc/RequestsLibrary.html
+  https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html
   https://asyrjasalo.github.io/RESTinstance/
   https://franz-see.github.io/Robotframework-Database-Library/api/1.2.2/DatabaseLibrary.html
 )
@@ -20,7 +20,7 @@ do
   npx ts-node src/fetch-library-documentation $url
 done
 
-versions=(3.1.2 3.1 3.0.4)
+versions=(3.2.1 3.1.2 3.1 3.0.4)
 libs=(BuiltIn Collections DateTime Dialogs OperatingSystem Process Screenshot String Telnet XML)
 
 for v in "${versions[@]}"
